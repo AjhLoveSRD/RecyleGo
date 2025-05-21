@@ -1,0 +1,5 @@
+[2025-05-20T22:36:21.144Z] Starting migration from Access database: .accdb to MySQL database: recyclego_db
+[2025-05-20T22:36:21.145Z] Connecting to Access database...
+[2025-05-20T22:36:23.604Z] Error connecting to Access database: [odbc] Error connecting to the database
+[2025-05-20T22:36:23.605Z] Make sure you have the Microsoft Access ODBC driver installed.
+[2025-05-20T22:36:23.605Z] You may need to install the 32-bit or 64-bit Access Database Engine from Microsoft.
