@@ -8,6 +8,7 @@ const authRoutes = require('./routes/auth');
 const aktivitasRoutes = require('./routes/aktivitas');
 const rewardRoutes = require('./routes/reward');
 const edukasiRoutes = require('./routes/edukasi');
+const adminRoutes = require('./routes/admin');
 
 dotenv.config();
 
@@ -24,14 +25,23 @@ const limiter = rateLimit({
 });
 app.use(limiter);
 
+// memungkinkan untuk mengakses file-file di folder public langsung melalui browser, tanpa perlu membuat route satu per satu.
+app.use(express.static('public'));
+app.use('/api/admin', adminRoutes);
+
 // Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/aktivitas', aktivitasRoutes);
 app.use('/api/reward', rewardRoutes);
 app.use('/api/edukasi', edukasiRoutes);
 
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/public/dashboard.html');
+});
+
 // DB Connection
-sequelize.sync()
+sequelize
+  .sync()
   .then(() => console.log('MySQL DB synced'))
   .catch((err) => console.error('DB error:', err));
 

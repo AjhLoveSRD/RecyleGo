@@ -5,49 +5,49 @@ const User = require('./User');
 const Reward = sequelize.define('Reward', {
   nama: {
     type: DataTypes.STRING,
-    allowNull: false
+    allowNull: false,
   },
   deskripsi: {
     type: DataTypes.TEXT,
-    allowNull: true
+    allowNull: true,
   },
   poin_dibutuhkan: {
     type: DataTypes.INTEGER,
-    allowNull: false
+    allowNull: false,
   },
   stok: {
     type: DataTypes.INTEGER,
-    defaultValue: 0
+    defaultValue: 0,
   },
   gambar: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   status: {
-    type: DataTypes.ENUM('aktif', 'nonaktif'),
-    defaultValue: 'aktif'
+    type: DataTypes.ENUM('active', 'inactive'),
+    defaultValue: 'active',
   },
   tanggal_kadaluarsa: {
     type: DataTypes.DATE,
-    allowNull: true
-  }
+    allowNull: true,
+  },
 });
 
 // Model untuk pencatatan reward yang ditukarkan
 const RewardClaim = sequelize.define('RewardClaim', {
   tanggal_klaim: {
     type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW
+    defaultValue: DataTypes.NOW,
   },
   status: {
     type: DataTypes.ENUM('pending', 'processed', 'completed'),
-    defaultValue: 'pending'
+    defaultValue: 'pending',
   },
   kode_klaim: {
     type: DataTypes.STRING,
     allowNull: false,
-    unique: true
-  }
+    unique: true,
+  },
 });
 
 // Relasi

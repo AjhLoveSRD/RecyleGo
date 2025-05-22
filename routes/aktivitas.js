@@ -30,7 +30,7 @@ const isAdmin = (req, res, next) => {
 router.get('/admin', verifyToken, isAdmin, async (req, res) => {
   try {
     const aktivitas = await Aktivitas.findAll({
-      include: [{ model: User, attributes: ['id', 'name', 'email'] }]
+      include: [{ model: User, attributes: ['id', 'name', 'email'] }],
     });
     res.json(aktivitas);
   } catch (err) {
@@ -43,7 +43,7 @@ router.get('/user', verifyToken, async (req, res) => {
   try {
     const aktivitas = await Aktivitas.findAll({
       where: { UserId: req.user.id },
-      order: [['createdAt', 'DESC']]
+      order: [['createdAt', 'DESC']],
     });
     res.json(aktivitas);
   } catch (err) {
@@ -54,20 +54,31 @@ router.get('/user', verifyToken, async (req, res) => {
 // Menambahkan aktivitas baru
 router.post('/', verifyToken, async (req, res) => {
   const { jenis_sampah, berat, lokasi, keterangan } = req.body;
-  
+
   // Hitung poin berdasarkan jenis sampah dan berat
   let poinPerKg = 0;
-  switch(jenis_sampah) {
-    case 'plastik': poinPerKg = 10; break;
-    case 'kertas': poinPerKg = 5; break;
-    case 'logam': poinPerKg = 15; break;
-    case 'organik': poinPerKg = 3; break;
-    case 'elektronik': poinPerKg = 20; break;
-    default: poinPerKg = 1;
+  switch (jenis_sampah) {
+    case 'plastik':
+      poinPerKg = 10;
+      break;
+    case 'kertas':
+      poinPerKg = 5;
+      break;
+    case 'logam':
+      poinPerKg = 15;
+      break;
+    case 'organik':
+      poinPerKg = 3;
+      break;
+    case 'elektronik':
+      poinPerKg = 20;
+      break;
+    default:
+      poinPerKg = 1;
   }
-  
+
   const poin_diperoleh = Math.round(berat * poinPerKg);
-  
+
   try {
     const aktivitas = await Aktivitas.create({
       jenis_sampah,
@@ -75,9 +86,9 @@ router.post('/', verifyToken, async (req, res) => {
       poin_diperoleh,
       lokasi,
       keterangan,
-      UserId: req.user.id
+      UserId: req.user.id,
     });
-    
+
     res.status(201).json(aktivitas);
   } catch (err) {
     res.status(400).json({ message: err.message });
@@ -88,31 +99,31 @@ router.post('/', verifyToken, async (req, res) => {
 router.patch('/:id/verify', verifyToken, isAdmin, async (req, res) => {
   const { id } = req.params;
   const { status } = req.body;
-  
+
   if (!['verified', 'rejected'].includes(status)) {
     return res.status(400).json({ message: 'Status tidak valid' });
   }
-  
+
   try {
     const aktivitas = await Aktivitas.findByPk(id, {
-      include: [{ model: User }]
+      include: [{ model: User }],
     });
-    
+
     if (!aktivitas) {
       return res.status(404).json({ message: 'Aktivitas tidak ditemukan' });
     }
-    
+
     // Update status aktivitas
     aktivitas.status = status;
     await aktivitas.save();
-    
+
     // Jika diverifikasi, tambahkan poin ke user
     if (status === 'verified') {
       const user = aktivitas.User;
       user.points += aktivitas.poin_diperoleh;
       await user.save();
     }
-    
+
     res.json({ message: `Aktivitas berhasil ${status === 'verified' ? 'diverifikasi' : 'ditolak'}` });
   } catch (err) {
     res.status(500).json({ message: err.message });
@@ -122,19 +133,19 @@ router.patch('/:id/verify', verifyToken, isAdmin, async (req, res) => {
 // Hapus aktivitas
 router.delete('/:id', verifyToken, async (req, res) => {
   const { id } = req.params;
-  
+
   try {
     const aktivitas = await Aktivitas.findByPk(id);
-    
+
     if (!aktivitas) {
       return res.status(404).json({ message: 'Aktivitas tidak ditemukan' });
     }
-    
+
     // Pastikan user hanya bisa menghapus aktivitasnya sendiri atau admin
     if (aktivitas.UserId !== req.user.id && req.user.role !== 'admin') {
       return res.status(403).json({ message: 'Tidak diizinkan' });
     }
-    
+
     await aktivitas.destroy();
     res.json({ message: 'Aktivitas berhasil dihapus' });
   } catch (err) {

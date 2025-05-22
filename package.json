@@ -22,12 +22,14 @@
     "dotenv": "^16.5.0",
     "express": "^4.21.2",
     "express-rate-limit": "^6.7.0",
+    "express-validator": "^7.2.1",
     "helmet": "^6.1.5",
     "jsonwebtoken": "^9.0.0",
     "mysql2": "^3.14.1",
     "odbc": "^2.4.9",
     "sequelize": "^6.31.1",
-    "uuid": "^9.0.0"
+    "uuid": "^9.0.0",
+    "xss-clean": "^0.1.4"
   },
   "devDependencies": {
     "nodemon": "^3.1.10"
