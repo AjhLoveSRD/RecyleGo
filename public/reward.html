@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manajemen Reward - RecycleGo</title>
+    <link rel="stylesheet" href="./css/reward.css" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <h2>RecycleGo Admin</h2>
+      <ul>
+        <li><a href="./dashboard.html">Dashboard</a></li>
+        <li><a href="./aktivitas.html">Aktivitas</a></li>
+        <li><a href="./edukasi.html">Edukasi</a></li>
+        <li><a href="./reward.html" class="active">Reward</a></li>
+      </ul>
+    </div>
+
+    <div class="content">
+      <!-- profil admin -->
+      <div class="topbar">
+        <div class="logo-container">
+          <img src="./image/logo.png" alt="Logo" class="logo" />
+        </div>
+        <input type="text" placeholder="Search" class="search" />
+
+        <div class="right">
+          <label class="switch">
+            <input type="checkbox" checked />
+            <span class="slider round"></span>
+          </label>
+          <i class="notif">🔔</i>
+          <div class="profile" id="profileToggle">
+            <img src="./image/profil.jpg" alt="User" class="avatar" />
+            <span class="username">Admin</span>
+            <div class="dropdown" id="profileDropdown">
+              <a href="#" id="logout">Logout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- profil admin -->
+
+      <div class="main">
+        <h1>Manajemen Reward</h1>
+        <div class="top-bar">
+          <button id="btnTambahReward" class="btn-tambah-reward">+ Tambah Reward</button>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Nama</th>
+              <th>Poin</th>
+              <th>Stok</th>
+              <th>Status</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="rewardTable">
+            <tr>
+              <td colspan="5">Memuat data...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <script src="./js/reward.js"></script>
+  </body>
+</html>

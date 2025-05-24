@@ -1,3 +1,4 @@
+// routes/aktivitas.js
 const express = require('express');
 const router = express.Router();
 const Aktivitas = require('../models/Aktivitas');
@@ -7,14 +8,18 @@ const jwt = require('jsonwebtoken');
 // Middleware untuk verifikasi token
 const verifyToken = (req, res, next) => {
   const token = req.header('Authorization')?.split(' ')[1];
-  if (!token) return res.status(401).json({ message: 'Akses ditolak' });
+  console.log('TOKEN:', token);
+  console.log('JWT_SECRET:', process.env.JWT_SECRET);
+
+  if (!token) return res.status(401).json({ message: 'Token kosong' });
 
   try {
     const verified = jwt.verify(token, process.env.JWT_SECRET);
     req.user = verified;
     next();
   } catch (err) {
-    res.status(400).json({ message: 'Token tidak valid' });
+    console.error('Verifikasi gagal:', err.message);
+    res.status(401).json({ message: 'Token tidak valid' });
   }
 };
 
@@ -30,7 +35,7 @@ const isAdmin = (req, res, next) => {
 router.get('/admin', verifyToken, isAdmin, async (req, res) => {
   try {
     const aktivitas = await Aktivitas.findAll({
-      include: [{ model: User, attributes: ['id', 'name', 'email'] }],
+      include: [{ model: User, attributes: ['id', 'username', 'email'] }],
     });
     res.json(aktivitas);
   } catch (err) {
@@ -55,7 +60,6 @@ router.get('/user', verifyToken, async (req, res) => {
 router.post('/', verifyToken, async (req, res) => {
   const { jenis_sampah, berat, lokasi, keterangan } = req.body;
 
-  // Hitung poin berdasarkan jenis sampah dan berat
   let poinPerKg = 0;
   switch (jenis_sampah) {
     case 'plastik':
@@ -113,14 +117,12 @@ router.patch('/:id/verify', verifyToken, isAdmin, async (req, res) => {
       return res.status(404).json({ message: 'Aktivitas tidak ditemukan' });
     }
 
-    // Update status aktivitas
     aktivitas.status = status;
     await aktivitas.save();
 
-    // Jika diverifikasi, tambahkan poin ke user
     if (status === 'verified') {
       const user = aktivitas.User;
-      user.points += aktivitas.poin_diperoleh;
+      user.poin_total += aktivitas.poin_diperoleh;
       await user.save();
     }
 
@@ -141,7 +143,6 @@ router.delete('/:id', verifyToken, async (req, res) => {
       return res.status(404).json({ message: 'Aktivitas tidak ditemukan' });
     }
 
-    // Pastikan user hanya bisa menghapus aktivitasnya sendiri atau admin
     if (aktivitas.UserId !== req.user.id && req.user.role !== 'admin') {
       return res.status(403).json({ message: 'Tidak diizinkan' });
     }
