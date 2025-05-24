@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Manajemen Edukasi - RecycleGo</title>
+    <link rel="stylesheet" href="./css/edukasi.css" />
+  </head>
+  <body>
+    <div class="sidebar">
+      <h2>RecycleGo Admin</h2>
+      <ul>
+        <li><a href="./dashboard.html">Dashboard</a></li>
+        <li><a href="./aktivitas.html">Aktivitas</a></li>
+        <li><a href="./edukasi.html">Edukasi</a></li>
+        <li><a href="./reward.html">Reward</a></li>
+      </ul>
+    </div>
+
+    <div class="content">
+      <!-- profil admin -->
+      <div class="topbar">
+        <div class="logo-container">
+          <img src="./image/logo.png" alt="Logo" class="logo" />
+        </div>
+        <input type="text" placeholder="Search" class="search" />
+
+        <div class="right">
+          <label class="switch">
+            <input type="checkbox" checked />
+            <span class="slider round"></span>
+          </label>
+          <i class="notif">🔔</i>
+          <div class="profile" id="profileToggle">
+            <img src="./image/profil.jpg" alt="User" class="avatar" />
+            <span class="username">Admin</span>
+            <div class="dropdown" id="profileDropdown">
+              <a href="#" id="logout">Logout</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- profil admin -->
+
+      <div class="main">
+        <h1>Manajemen Konten Edukasi</h1>
+
+        <div style="text-align: right; margin-bottom: 20px">
+          <button id="btnTambahEdukasi" class="btn-tambah-edukasi">+ Tambah Edukasi</button>
+        </div>
+
+        <table>
+          <thead>
+            <tr>
+              <th>Judul</th>
+              <th>Kategori</th>
+              <th>Status</th>
+              <th>Poin Reward</th>
+              <th>Aksi</th>
+            </tr>
+          </thead>
+          <tbody id="edukasiTable">
+            <tr>
+              <td colspan="5">Memuat data...</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="toast"></div>
+    <script src="./js/edukasi.js"></script>
+  </body>
+</html>
