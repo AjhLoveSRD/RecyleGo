@@ -20,10 +20,10 @@ app.use(cors());
 app.use(express.json());
 
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000,
-  max: 100,
+  windowMs: 5 * 60 * 1000,
+  max: 1000,
 });
-app.use(limiter);
+// app.use(limiter);
 
 // memungkinkan untuk mengakses file-file di folder public langsung melalui browser, tanpa perlu membuat route satu per satu.
 app.use(express.static('public'));
@@ -35,8 +35,8 @@ app.use('/api/aktivitas', aktivitasRoutes);
 app.use('/api/reward', rewardRoutes);
 app.use('/api/edukasi', edukasiRoutes);
 
-app.get('/', (req, res) => {
-  res.sendFile(__dirname + '/public/dashboard.html');
+app.get(['/', '/login'], (req, res) => {
+  res.sendFile(__dirname + '/public/login.html');
 });
 
 // DB Connection
@@ -47,4 +47,7 @@ sequelize
 
 // Start server
 const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+
+app.listen(PORT, () => {
+  console.log(`✅ Server running at: http://localhost:${PORT}`);
+});

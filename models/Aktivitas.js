@@ -5,32 +5,32 @@ const User = require('./User');
 const Aktivitas = sequelize.define('Aktivitas', {
   jenis_sampah: {
     type: DataTypes.ENUM('plastik', 'kertas', 'logam', 'organik', 'elektronik'),
-    allowNull: false
+    allowNull: false,
   },
   berat: {
     type: DataTypes.FLOAT,
-    allowNull: false
+    allowNull: false,
   },
   poin_diperoleh: {
     type: DataTypes.INTEGER,
-    allowNull: false
+    allowNull: false,
   },
   tanggal: {
     type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW
+    defaultValue: DataTypes.NOW,
   },
   lokasi: {
     type: DataTypes.STRING,
-    allowNull: true
+    allowNull: true,
   },
   status: {
     type: DataTypes.ENUM('pending', 'verified', 'rejected'),
-    defaultValue: 'pending'
+    defaultValue: 'verified',
   },
   keterangan: {
     type: DataTypes.TEXT,
-    allowNull: true
-  }
+    allowNull: true,
+  },
 });
 
 // Relasi dengan User
