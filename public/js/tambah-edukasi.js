@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .then((data) => {
         showToast('Edukasi berhasil ditambahkan!');
         setTimeout(() => {
-          window.location.href = 'edukasi.html';
+          window.location.href = '/edukasi';
         }, 1500);
       })
       .catch(() => {

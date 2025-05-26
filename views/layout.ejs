@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="id">
+  <%- include('partials/head') %>
+  <body>
+    <% if (withSidebar) { %>
+      <%- include('partials/sidebar') %>
+    <% } %>
+
+    <div class="content">
+      <% if (withTopbar) { %>
+        <%- include('partials/topbar') %>
+      <% } %>
+      <%- body %>
+    </div>
+
+    <%- include('partials/footer') %>
+  </body>
+</html>

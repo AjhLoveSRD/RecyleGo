@@ -14,7 +14,9 @@ dotenv.config();
 
 const app = express();
 
-// Middleware
+app.set('view engine', 'ejs');
+
+// Middleware berhubungan dengan enkripsi dll.
 app.use(helmet());
 app.use(cors());
 app.use(express.json());
@@ -36,8 +38,62 @@ app.use('/api/reward', rewardRoutes);
 app.use('/api/edukasi', edukasiRoutes);
 
 app.get(['/', '/login'], (req, res) => {
-  res.sendFile(__dirname + '/public/login.html');
+  res.render('pages/login');
 });
+
+app.get('/register', (req, res) => {
+  res.render('pages/register');
+});
+
+app.get('/dashboard', (req, res) => {
+  res.render('pages/dashboard');
+});
+
+app.get('/aktivitas', (req, res) => {
+  res.render('pages/aktivitas');
+});
+
+app.get('/edukasi', (req, res) => {
+  res.render('pages/edukasi');
+});
+
+app.get('/reward', (req, res) => {
+  res.render('pages/reward');
+});
+
+app.get('/tambah-edukasi', (req, res) => {
+  res.render('pages/tambah-edukasi');
+});
+
+app.get('/tambah-reward', (req, res) => {
+  res.render('pages/tambah-reward');
+});
+
+app.get('/edit-edukasi/:id', (req, res) => {
+  res.render('pages/edit-edukasi', {
+    title: 'Edit Edukasi',
+    style: 'edit-edukasi',
+    script: 'edit-edukasi',
+    withSidebar: true,
+    withTopbar: true,
+    id: req.params.id, // untuk digunakan di EJS atau JS
+  });
+});
+
+app.get('/edit-reward/:id', (req, res) => {
+  res.render('pages/edit-reward', {
+    title: 'Edit Reward',
+    style: 'edit-reward',
+    script: 'edit-reward',
+    withSidebar: true,
+    withTopbar: false,
+    id: req.params.id, // untuk digunakan di EJS atau JS
+  });
+});
+
+// app.get('/', (req, res) => {
+//   res.sendFile(__dirname + '/public/login.html');
+// });
 
 // DB Connection
 sequelize

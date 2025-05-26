@@ -1,5 +1,5 @@
-const params = new URLSearchParams(window.location.search);
-const id = params.get('id');
+const id = window.location.pathname.split('/').pop(); // hasilnya "8"
+
 const token = localStorage.getItem('token');
 
 if (!id) {
@@ -67,7 +67,7 @@ form.addEventListener('submit', function (e) {
       }
       showToast('Berhasil disimpan!');
       setTimeout(() => {
-        window.location.href = 'edukasi.html';
+        window.location.href = '/edukasi';
       }, 1500);
     })
     .catch(() => {

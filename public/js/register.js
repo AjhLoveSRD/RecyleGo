@@ -20,7 +20,7 @@ document.getElementById('registerForm').addEventListener('submit', async (e) => 
 
   if (res.ok) {
     localStorage.setItem('token', data.accessToken); // ✅ simpan token
-    window.location.href = '/login.html'; // ✅ redirect
+    window.location.href = '/login'; // ✅ redirect
   } else {
     document.getElementById('error').textContent = data.message || (data.errors?.[0]?.msg ?? 'Registrasi gagal');
   }

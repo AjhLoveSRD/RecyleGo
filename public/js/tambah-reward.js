@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
       })
       .then(() => {
         alert('Reward berhasil ditambahkan!');
-        window.location.href = './reward.html';
+        window.location.href = '/reward';
       })
       .catch((err) => {
         console.error(err);

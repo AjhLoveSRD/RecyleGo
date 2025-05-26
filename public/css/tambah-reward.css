@@ -1,10 +1,10 @@
 body {
-  font-family: 'Segoe UI', sans-serif;
-  margin: 0;
-  background: #f2f4f8;
   display: flex;
   height: 100vh;
   overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background: #f2f4f8;
 }
 
 .sidebar {
@@ -93,4 +93,11 @@ form select {
 
 .btn-simpan:hover {
   background-color: #256528;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }
