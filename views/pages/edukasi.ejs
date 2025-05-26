@@ -1,0 +1,26 @@
+<%- include('../layout', { title: 'Edukasi', style: 'edukasi', script: 'edukasi', withSidebar: true, withTopbar: true, body: `
+<div class="main">
+  <h1>Manajemen Konten Edukasi</h1>
+
+  <div style="text-align: right; margin-bottom: 20px">
+    <button id="btnTambahEdukasi" class="btn-tambah-edukasi">+ Tambah Edukasi</button>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Judul</th>
+        <th>Kategori</th>
+        <th>Status</th>
+        <th>Poin Reward</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody id="edukasiTable">
+      <tr>
+        <td colspan="5">Memuat data...</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+` }) %>

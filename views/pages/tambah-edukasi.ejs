@@ -1,0 +1,25 @@
+<%- include('../layout', { title: 'Tambah Edukasi', style: 'tambah-edukasi', script: 'tambah-edukasi', withSidebar: true, withTopbar: false, body: `
+<div class="main">
+  <h1>Tambah Konten Edukasi</h1>
+  <form id="tambahForm">
+    <input type="text" id="judul" placeholder="Judul" required />
+    <textarea id="konten" placeholder="Konten edukasi" required></textarea>
+    <select id="kategori" required>
+      <option value="">Pilih Kategori</option>
+      <option value="artikel">Artikel</option>
+      <option value="video">Video</option>
+      <option value="infografis">Infografis</option>
+      <option value="tips">Tips</option>
+    </select>
+    <input type="text" id="gambar" placeholder="URL Gambar (opsional)" />
+    <input type="text" id="link_video" placeholder="URL Video (opsional)" />
+    <input type="number" id="poin_reward" placeholder="Poin Reward" min="0" />
+    <select id="status" required>
+      <option value="draft">Draft</option>
+      <option value="published">Published</option>
+    </select>
+
+    <button type="submit" class="btn-tambah-edukasi">Simpan</button>
+  </form>
+</div>
+` }) %>

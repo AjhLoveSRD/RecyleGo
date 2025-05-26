@@ -10,8 +10,9 @@ document.addEventListener('DOMContentLoaded', () => {
     'Content-Type': 'application/json',
   };
 
-  const urlParams = new URLSearchParams(window.location.search);
-  const id = urlParams.get('id');
+  // Ambil ID dari path URL (misal: /edit-reward/1)
+  const pathParts = window.location.pathname.split('/');
+  const id = pathParts[pathParts.length - 1];
   const form = document.getElementById('formReward');
 
   if (!id) {
@@ -58,7 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
       .then((res) => res.json())
       .then(() => {
         alert('Reward berhasil diperbarui!');
-        window.location.href = './reward.html';
+        window.location.href = '/reward';
       })
       .catch((err) => {
         console.error(err);

@@ -11,7 +11,7 @@ logout.addEventListener('click', (e) => {
   e.preventDefault();
   localStorage.clear();
   alert('Berhasil logout!');
-  window.location.href = './login.html';
+  window.location.href = '/login';
 });
 // halaman profil
 
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.querySelectorAll('.btn-edit').forEach((button) => {
         button.addEventListener('click', () => {
           const id = button.getAttribute('data-id');
-          window.location.href = `edit-edukasi.html?id=${id}`;
+          window.location.href = `/edit-edukasi/${id}`;
         });
       });
 
@@ -95,5 +95,5 @@ function showToast(message, isError = false) {
 }
 
 document.getElementById('btnTambahEdukasi').addEventListener('click', () => {
-  window.location.href = 'tambah-edukasi.html';
+  window.location.href = '/tambah-edukasi';
 });

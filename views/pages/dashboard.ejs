@@ -1,0 +1,81 @@
+<%- include('../layout', { title: 'Dashboard', style: 'dashboard', script: 'dashboard', withSidebar: true, withTopbar: true, body: `
+<div class="main">
+  <h1>Dashboard Admin</h1>
+  <div class="cards">
+    <div class="card">
+      <h3>Total Pengguna</h3>
+      <p id="userCount">...</p>
+    </div>
+    <div class="card">
+      <h3>Total Aktivitas</h3>
+      <p id="aktivitasCount">...</p>
+    </div>
+    <div class="card">
+      <h3>Total Berat Sampah</h3>
+      <p id="totalBerat">...</p>
+    </div>
+    <div class="card">
+      <h3>Total Poin</h3>
+      <p id="totalPoin">...</p>
+    </div>
+  </div>
+
+  <h2>Aktivitas Terbaru</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Nama</th>
+        <th>Jenis Sampah</th>
+        <th>Berat</th>
+        <th>Poin</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody id="aktivitasTable">
+      <tr>
+        <td colspan="5">Memuat...</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Konten Edukasi Terbaru</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Judul</th>
+        <th>Konten</th>
+        <th>Kategori</th>
+        <th>Gambar</th>
+        <th>Link Video</th>
+        <th>Poin</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody id="edukasiTable">
+      <tr>
+        <td colspan="4">Memuat...</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>Reward Tersedia</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Nama</th>
+        <th>Deskripsi</th>
+        <th>Poin Dibutuhkan</th>
+        <th>Stok</th>
+        <th>Gambar</th>
+        <th>Status</th>
+        <th>Tanggal Kadaluarsa</th>
+      </tr>
+    </thead>
+    <tbody id="rewardTable">
+      <tr>
+        <td colspan="3">Memuat...</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+` }) %>

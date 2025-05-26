@@ -14,7 +14,7 @@ document.getElementById('loginForm').addEventListener('submit', async (e) => {
 
   if (res.ok) {
     localStorage.setItem('token', data.accessToken); // ✅ simpan token
-    window.location.href = '/dashboard.html'; // ✅ redirect
+    window.location.href = '/dashboard'; // ✅ redirect
   } else {
     document.getElementById('error').textContent = data.message || 'Login gagal';
   }

@@ -1,0 +1,2200 @@
+/* === register.css === */
+/* Reset dasar */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #e3f6e3, #fdfdfd);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container */
+.register-container {
+  background-color: #fff;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: fadeIn 0.6s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Judul */
+h2 {
+  color: #2e7d32;
+  margin-bottom: 24px;
+}
+
+/* Input Form */
+form {
+  width: 100%;
+}
+
+form input {
+  width: 100%;
+  padding: 12px 14px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  transition: border-color 0.3s;
+}
+
+form input:focus {
+  border-color: #4caf50;
+  outline: none;
+}
+
+/* Tombol Daftar */
+button {
+  width: 100%;
+  padding: 12px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #388e3c;
+}
+
+/* Error */
+#error {
+  color: red;
+  font-size: 13px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+/* Link ke login */
+.login-link {
+  margin-top: 20px;
+  text-align: center;
+  color: #388e3c;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+.login-link:hover {
+  text-decoration: underline;
+}
+
+
+/* === reward.css === */
+/* Layout dasar */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background: #f2f4f8;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background-color: #2e7d32;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar h2 {
+  margin: 0 0 20px 0;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 12px;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.sidebar ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Konten utama */
+.main {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+  background-color: #fff;
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Tombol tambah reward */
+.top-bar {
+  text-align: right;
+  margin-bottom: 20px;
+}
+
+.btn-tambah-reward {
+  background-color: #2e7d32;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-tambah-reward:hover {
+  background-color: #256528;
+}
+
+/* Tabel */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+th,
+td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: center;
+  font-size: 14px;
+}
+
+th {
+  background-color: #f0f0f0;
+  font-weight: 600;
+}
+
+.status-cell.active {
+  color: #2e7d32;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.status-cell.inactive {
+  color: #d32f2f;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+/* Tombol Aksi */
+button {
+  padding: 6px 14px;
+  margin: 0 3px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  font-size: 13px;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button.btn-edit {
+  background-color: #1976d2; /* biru */
+}
+
+button.btn-delete {
+  background-color: #e53935; /* merah */
+}
+
+/* Toast Notification (jika dibutuhkan) */
+#toast {
+  visibility: hidden;
+  min-width: 200px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 12px 20px;
+  position: fixed;
+  z-index: 999;
+  left: 50%;
+  bottom: 30px;
+  font-size: 14px;
+  transform: translateX(-50%);
+  transition: opacity 0.3s ease;
+}
+
+#toast.show {
+  visibility: visible;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+#toast.error {
+  background-color: #e74c3c;
+  visibility: visible;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Topbar */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  height: 64px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+.search {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  min-width: 300px;
+  margin-left: 20px;
+}
+
+.topbar .right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Switch Toggle */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2e7d32;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+.notif {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.profile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 8px;
+}
+
+.username {
+  font-weight: 500;
+  font-size: 14px;
+  color: #333;
+}
+
+.dropdown {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 6px;
+  display: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown a {
+  text-decoration: none;
+  color: #d32f2f;
+  font-weight: bold;
+}
+
+.dropdown a:hover {
+  text-decoration: underline;
+}
+
+
+/* === tambah-edukasi.css === */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f2f4f8;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.content,
+.main {
+  margin-left: 100px; /* ✅ geser konten agar tidak ketumpuk sidebar */
+  padding: 0px 60px;
+  flex: 1;
+  background-color: #fff;
+  min-height: 100vh;
+  overflow-y: hidden;
+  box-sizing: border-box;
+}
+
+.sidebar {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  width: 220px;
+  background-color: #2e7d32;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  z-index: 100;
+}
+
+.sidebar h2 {
+  margin: 0 0 20px;
+  font-size: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 12px;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.sidebar ul li a:hover {
+  text-decoration: underline;
+}
+
+.main {
+  flex: 1;
+  padding: 10px;
+  overflow-y: auto;
+  background-color: #fff;
+  /* border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px; */
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.05);
+}
+
+.main h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2e7d32;
+}
+
+form {
+  max-width: 600px;
+  margin: auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+form input,
+form textarea,
+form select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 16px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.btn-tambah-edukasi {
+  background-color: #2e7d32;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-tambah-edukasi:hover {
+  background-color: #256528;
+}
+
+/* Toast Notification */
+#toast {
+  visibility: hidden;
+  min-width: 200px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 12px 20px;
+  position: fixed;
+  z-index: 999;
+  left: 50%;
+  bottom: 30px;
+  font-size: 14px;
+  transform: translateX(-50%);
+  transition: opacity 0.3s ease;
+}
+
+#toast.show {
+  visibility: visible;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+#toast.error {
+  background-color: #e74c3c;
+  visibility: visible;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+
+/* === tambah-reward.css === */
+body {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background: #f2f4f8;
+}
+
+.sidebar {
+  width: 220px;
+  background-color: #2e7d32;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 12px;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.sidebar ul li a.active {
+  text-decoration: underline;
+}
+
+.main {
+  flex: 1;
+  padding: 40px;
+  background-color: #fff;
+  overflow-y: auto;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+form {
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+form input,
+form textarea,
+form select {
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.btn-simpan {
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-simpan:hover {
+  background-color: #256528;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+
+/* === aktivitas.css === */
+/* Layout dasar */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background: #f2f4f8;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background-color: #2e7d32;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar h2 {
+  margin: 0 0 20px 0;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 12px;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.sidebar ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Konten utama */
+.main {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+  background-color: #fff;
+  /* border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px; */
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Tabel */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+th,
+td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: center;
+  font-size: 14px;
+}
+
+th {
+  background-color: #f0f0f0;
+  font-weight: 600;
+}
+
+.status-cell.verified {
+  color: #2e7d32;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.status-cell.rejected {
+  color: #d32f2f;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+/* Tombol */
+button {
+  padding: 6px 14px;
+  margin: 0 3px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  font-size: 13px;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button.verify-btn[data-status='verified'] {
+  background-color: #43a047;
+}
+
+button.verify-btn[data-status='rejected'] {
+  background-color: #e53935;
+}
+
+/* Toast Notification */
+#toast {
+  visibility: hidden;
+  min-width: 200px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 12px 20px;
+  position: fixed;
+  z-index: 999;
+  left: 50%;
+  bottom: 30px;
+  font-size: 14px;
+  transform: translateX(-50%);
+  transition: opacity 0.3s ease;
+}
+
+#toast.show {
+  visibility: visible;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+#toast.error {
+  background-color: #e74c3c;
+  visibility: visible;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animasi toast */
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Topbar */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  height: 64px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+.search {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  min-width: 300px;
+  margin-left: 20px;
+}
+
+.topbar .right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Switch Toggle */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2e7d32;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+.notif {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.profile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 8px;
+}
+
+.username {
+  font-weight: 500;
+  font-size: 14px;
+  color: #333;
+}
+
+.dropdown {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 6px;
+  display: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown a {
+  text-decoration: none;
+  color: #d32f2f;
+  font-weight: bold;
+}
+
+.dropdown a:hover {
+  text-decoration: underline;
+}
+
+
+/* === dashboard.css === */
+/* Layout Global */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  display: flex;
+  height: 100vh;
+  background: #f2f4f8;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background-color: #2e7d32;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar h2 {
+  margin-top: 0;
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 12px;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.sidebar ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Konten Kanan */
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Topbar */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  height: 64px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+.search {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  min-width: 300px;
+  margin-left: 20px;
+}
+
+.topbar .right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Switch Toggle */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2e7d32;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+.notif {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.profile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 8px;
+}
+
+.username {
+  font-weight: 500;
+  font-size: 14px;
+  color: #333;
+}
+
+.dropdown {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 6px;
+  display: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown a {
+  text-decoration: none;
+  color: #d32f2f;
+  font-weight: bold;
+}
+
+.dropdown a:hover {
+  text-decoration: underline;
+}
+
+/* Main Content */
+.main {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+  background-color: #fff;
+  /* border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px; */
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.05);
+}
+
+.cards {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+}
+
+.card {
+  flex: 1;
+  min-width: 200px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  text-align: center;
+}
+
+.card h3 {
+  margin: 0 0 10px;
+  color: #2e7d32;
+}
+
+.card p {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Table */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: white;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+table th,
+table td {
+  padding: 12px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: center;
+  font-size: 14px;
+}
+
+table th {
+  background-color: #f0f0f0;
+  font-weight: 600;
+  color: #333;
+}
+
+
+/* === edit-edukasi.css === */
+/* Layout dasar */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background: #f2f4f8;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background-color: #2e7d32;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar h2 {
+  margin: 0 0 20px 0;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 12px;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.sidebar ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Konten utama */
+.main {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+  background-color: #fff;
+  /* border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px; */
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Tabel */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+th,
+td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: center;
+  font-size: 14px;
+}
+
+th {
+  background-color: #f0f0f0;
+  font-weight: 600;
+}
+
+.status-cell.verified {
+  color: #2e7d32;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.status-cell.rejected {
+  color: #d32f2f;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+/* Tombol */
+button {
+  padding: 6px 14px;
+  margin: 0 3px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  font-size: 13px;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+button.verify-btn[data-status='verified'] {
+  background-color: #43a047;
+}
+
+button.verify-btn[data-status='rejected'] {
+  background-color: #e53935;
+}
+
+/* Toast Notification */
+#toast {
+  visibility: hidden;
+  min-width: 200px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 12px 20px;
+  position: fixed;
+  z-index: 999;
+  left: 50%;
+  bottom: 30px;
+  font-size: 14px;
+  transform: translateX(-50%);
+  transition: opacity 0.3s ease;
+}
+
+#toast.show {
+  visibility: visible;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+#toast.error {
+  background-color: #e74c3c;
+  visibility: visible;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animasi toast */
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Topbar */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  height: 64px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+.search {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  min-width: 300px;
+  margin-left: 20px;
+}
+
+.topbar .right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Switch Toggle */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2e7d32;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+.notif {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.profile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 8px;
+}
+
+.username {
+  font-weight: 500;
+  font-size: 14px;
+  color: #333;
+}
+
+.dropdown {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 6px;
+  display: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown a {
+  text-decoration: none;
+  color: #d32f2f;
+  font-weight: bold;
+}
+
+.dropdown a:hover {
+  text-decoration: underline;
+}
+
+form {
+  max-width: 600px;
+  margin: auto;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+form input,
+form textarea,
+form select {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+form button {
+  background-color: #2e7d32;
+  color: white;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+form button:hover {
+  opacity: 0.9;
+}
+
+.main h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+
+/* === edit-reward.css === */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background: #f2f4f8;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  flex-direction: row;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column; /* topbar + main vertikal */
+  overflow: hidden;
+}
+
+.sidebar {
+  width: 220px;
+  background-color: #2e7d32;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar h2 {
+  margin-bottom: 20px;
+  font-size: 20px;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 12px;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.sidebar ul li a.active {
+  text-decoration: underline;
+}
+
+.main {
+  flex: 1;
+  padding: 40px;
+  background-color: #fff;
+  overflow-y: auto;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+}
+
+form {
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+form input,
+form textarea,
+form select {
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+}
+
+.btn-simpan {
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #2e7d32;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-simpan:hover {
+  background-color: #256528;
+}
+
+
+/* === edukasi.css === */
+/* Layout dasar */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background: #f2f4f8;
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 220px;
+  background-color: #2e7d32;
+  color: white;
+  padding: 20px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar h2 {
+  margin: 0 0 20px 0;
+  font-size: 20px;
+  line-height: 1.2;
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 12px;
+}
+
+.sidebar ul li a {
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.sidebar ul li a:hover {
+  text-decoration: underline;
+}
+
+/* Konten utama */
+.main {
+  flex: 1;
+  padding: 30px;
+  overflow-y: auto;
+  background-color: #fff;
+  /* border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px; */
+  box-shadow: -4px 0 12px rgba(0, 0, 0, 0.05);
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #333;
+}
+
+/* Tabel */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+}
+
+th,
+td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e0e0e0;
+  text-align: center;
+  font-size: 14px;
+}
+
+th {
+  background-color: #f0f0f0;
+  font-weight: 600;
+}
+
+.status-cell.verified {
+  color: #2e7d32;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.status-cell.rejected {
+  color: #d32f2f;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+/* Tombol */
+button {
+  padding: 6px 14px;
+  margin: 0 3px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  color: white;
+  font-weight: 600;
+  font-size: 13px;
+  transition: background-color 0.2s ease;
+}
+
+button:hover {
+  opacity: 0.9;
+}
+
+/* Tambahan tombol khusus edukasi */
+button.btn-edit {
+  background-color: #1976d2; /* biru */
+  color: white;
+}
+
+button.btn-delete {
+  background-color: #e53935; /* merah */
+  color: white;
+}
+
+.btn-tambah-edukasi {
+  background-color: #2e7d32;
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.btn-tambah-edukasi:hover {
+  background-color: #256528;
+}
+
+/* Toast Notification */
+#toast {
+  visibility: hidden;
+  min-width: 200px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 8px;
+  padding: 12px 20px;
+  position: fixed;
+  z-index: 999;
+  left: 50%;
+  bottom: 30px;
+  font-size: 14px;
+  transform: translateX(-50%);
+  transition: opacity 0.3s ease;
+}
+
+#toast.show {
+  visibility: visible;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+#toast.error {
+  background-color: #e74c3c;
+  visibility: visible;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+/* Animasi toast */
+@keyframes fadein {
+  from {
+    bottom: 0;
+    opacity: 0;
+  }
+  to {
+    bottom: 30px;
+    opacity: 1;
+  }
+}
+
+@keyframes fadeout {
+  from {
+    bottom: 30px;
+    opacity: 1;
+  }
+  to {
+    bottom: 0;
+    opacity: 0;
+  }
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Topbar */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 30px;
+  background-color: #fff;
+  border-bottom: 1px solid #eee;
+  height: 64px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  box-sizing: border-box;
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+  display: block;
+}
+
+.search {
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  min-width: 300px;
+  margin-left: 20px;
+}
+
+.topbar .right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+/* Switch Toggle */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: '';
+  height: 14px;
+  width: 14px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #2e7d32;
+}
+
+input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+.notif {
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.profile {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 8px;
+}
+
+.username {
+  font-weight: 500;
+  font-size: 14px;
+  color: #333;
+}
+
+.dropdown {
+  position: absolute;
+  top: 110%;
+  right: 0;
+  background-color: white;
+  border: 1px solid #ddd;
+  padding: 10px;
+  border-radius: 6px;
+  display: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown a {
+  text-decoration: none;
+  color: #d32f2f;
+  font-weight: bold;
+}
+
+.dropdown a:hover {
+  text-decoration: underline;
+}
+
+
+/* === login.css === */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #d0f0c0, #f2f2f2);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-container {
+  background-color: #ffffff;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 350px;
+  animation: fadeIn 0.8s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+h2 {
+  margin-bottom: 25px;
+  text-align: center;
+  color: #2e7d32;
+}
+
+input {
+  width: 100%;
+  padding: 12px 15px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s;
+}
+
+input:focus {
+  border-color: #4caf50;
+  outline: none;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  background-color: #4caf50;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #43a047;
+}
+
+.register-link {
+  display: block;
+  margin-top: 20px;
+  text-align: center;
+  color: #4caf50;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.register-link:hover {
+  text-decoration: underline;
+}
+
+#error {
+  color: red;
+  font-size: 14px;
+  margin-top: 10px;
+  text-align: center;
+}
+
+

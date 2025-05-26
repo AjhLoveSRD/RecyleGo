@@ -1,15 +1,20 @@
-body {
+/* Reset dasar */
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: linear-gradient(135deg, #e3f6e3, #fdfdfd);
+  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
 }
 
+/* Container */
 .register-container {
   background-color: #fff;
   padding: 40px 30px;
@@ -17,16 +22,16 @@ body {
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 400px;
-  animation: slideFade 0.6s ease-in-out;
   display: flex;
   flex-direction: column;
   align-items: center;
+  animation: fadeIn 0.6s ease-in-out;
 }
 
-@keyframes slideFade {
+@keyframes fadeIn {
   from {
     opacity: 0;
-    transform: translateY(-20px);
+    transform: translateY(-10px);
   }
   to {
     opacity: 1;
@@ -34,23 +39,25 @@ body {
   }
 }
 
+/* Judul */
 h2 {
-  margin-bottom: 25px;
   color: #2e7d32;
+  margin-bottom: 24px;
 }
 
+/* Input Form */
 form {
   width: 100%;
 }
 
 form input {
   width: 100%;
-  padding: 12px;
-  margin-bottom: 15px;
+  padding: 12px 14px;
+  margin-bottom: 16px;
   border: 1px solid #ccc;
   border-radius: 8px;
   font-size: 14px;
-  transition: 0.3s;
+  transition: border-color 0.3s;
 }
 
 form input:focus {
@@ -58,6 +65,7 @@ form input:focus {
   outline: none;
 }
 
+/* Tombol Daftar */
 button {
   width: 100%;
   padding: 12px;
@@ -66,7 +74,7 @@ button {
   border: none;
   border-radius: 8px;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 16px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
@@ -75,6 +83,7 @@ button:hover {
   background-color: #388e3c;
 }
 
+/* Error */
 #error {
   color: red;
   font-size: 13px;
@@ -82,8 +91,8 @@ button:hover {
   margin-top: 10px;
 }
 
+/* Link ke login */
 .login-link {
-  display: block;
   margin-top: 20px;
   text-align: center;
   color: #388e3c;

@@ -1,0 +1,34 @@
+<%- include('../layout', { title: 'Edit Reward', style: 'edit-reward', script: 'edit-reward', withSidebar: true, withTopbar: false, body: `
+<div class="main">
+  <h1>Edit Reward</h1>
+  <form id="formReward">
+    <input type="hidden" id="rewardId" />
+
+    <label>Nama:</label>
+    <input type="text" id="nama" required />
+
+    <label>Deskripsi:</label>
+    <textarea id="deskripsi" rows="3"></textarea>
+
+    <label>Poin Dibutuhkan:</label>
+    <input type="number" id="poin" required />
+
+    <label>Stok:</label>
+    <input type="number" id="stok" required />
+
+    <label>URL Gambar:</label>
+    <input type="text" id="gambar" />
+
+    <label>Status:</label>
+    <select id="status">
+      <option value="active">Active</option>
+      <option value="inactive">Inactive</option>
+    </select>
+
+    <label>Tanggal Kadaluarsa:</label>
+    <input type="date" id="kadaluarsa" />
+
+    <button type="submit" class="btn-simpan">Simpan Perubahan</button>
+  </form>
+</div>
+` }) %>
