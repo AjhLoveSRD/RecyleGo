@@ -1,0 +1,22 @@
+<%- include('../layout', { title: 'Aktivitas', style: 'aktivitas', script: 'aktivitas', withSidebar: true, withTopbar: true, body: `
+<div class="main">
+    <h1>Manajemen Aktivitas Pengguna</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>Nama</th>
+          <th>Jenis Sampah</th>
+          <th>Berat (kg)</th>
+          <th>Poin</th>
+          <th>Status</th>
+          <th>Aksi</th>
+        </tr>
+      </thead>
+      <tbody id="aktivitasTable">
+        <tr>
+          <td colspan="6">Memuat data...</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+` }) %>

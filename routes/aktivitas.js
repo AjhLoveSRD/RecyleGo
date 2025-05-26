@@ -110,7 +110,7 @@ router.patch('/:id/verify', verifyToken, isAdmin, async (req, res) => {
 
   try {
     const aktivitas = await Aktivitas.findByPk(id, {
-      include: [{ model: User }],
+      include: [{ model: User, as: 'User' }],
     });
 
     if (!aktivitas) {
@@ -120,17 +120,24 @@ router.patch('/:id/verify', verifyToken, isAdmin, async (req, res) => {
     aktivitas.status = status;
     await aktivitas.save();
 
-    if (status === 'verified') {
-      const user = aktivitas.User;
-      user.poin_total += aktivitas.poin_diperoleh;
-      await user.save();
+    if (status === 'verified' && aktivitas.User) {
+      if (typeof aktivitas.User.poin_total === 'number') {
+        aktivitas.User.poin_total += aktivitas.poin_diperoleh;
+        await aktivitas.User.save();
+      } else {
+        console.warn('⚠️ poin_total tidak tersedia pada User');
+      }
     }
 
-    res.json({ message: `Aktivitas berhasil ${status === 'verified' ? 'diverifikasi' : 'ditolak'}` });
+    res.json({
+      message: `Aktivitas berhasil ${status === 'verified' ? 'diverifikasi' : 'ditolak'}`,
+    });
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    console.error('❌ ERROR PATCH /verify:', err);
+    res.status(500).json({ message: 'Terjadi kesalahan di server.' });
   }
 });
+
 
 // Hapus aktivitas
 router.delete('/:id', verifyToken, async (req, res) => {

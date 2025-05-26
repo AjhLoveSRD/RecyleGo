@@ -65,14 +65,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Redirect ke halaman tambah reward (gunakan halaman berbeda jika diinginkan)
   btnTambah.onclick = () => {
-    window.location.href = './tambah-reward.html';
+    window.location.href = '/tambah-reward';
   };
 
   // Klik tombol edit arahkan ke halaman edit
   rewardTable.addEventListener('click', (e) => {
     if (e.target.classList.contains('btn-edit')) {
       const id = e.target.dataset.id;
-      window.location.href = `./edit-reward.html?id=${id}`;
+      window.location.href = `/edit-reward/${id}`;
     }
   });
 });
