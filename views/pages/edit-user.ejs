@@ -1,0 +1,54 @@
+<%- include('../layout', { title: 'Edit Pengguna', style: 'edit-user', script: 'edit-user', withSidebar: true, withTopbar: false, body: `
+<div class="main">
+  <div class="header-actions">
+    <h1>Edit Pengguna</h>
+  </div>
+
+  <form id="editUserForm">
+    <div class="form-group">
+      <label for="nama_lengkap">Nama Lengkap</label>
+      <input type="text" id="nama_lengkap" name="nama_lengkap" required />
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" required />
+    </div>
+
+    <div class="form-group">
+      <label for="no_telepon">No. Telepon</label>
+      <input type="text" id="no_telepon" name="no_telepon" />
+    </div>
+
+    <div class="form-group">
+      <label for="alamat">Alamat</label>
+      <textarea id="alamat" name="alamat"></textarea>
+    </div>
+
+    <div class="form-group">
+      <label for="poin_total">Total Poin</label>
+      <input type="number" id="poin_total" name="poin_total" min="0" />
+    </div>
+
+    <div class="form-group">
+      <label for="status">Status</label>
+      <select id="status" name="status">
+        <option value="active">Active</option>
+        <option value="inactive">Inactive</option>
+        <option value="suspended">Suspended</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="role">Role</label>
+      <select id="role" name="role">
+        <option value="user">User</option>
+        <option value="admin">Admin</option>
+        <option value="moderator">Moderator</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-edit">Simpan Perubahan</button>
+  </form>
+</div>
+` }) %>
