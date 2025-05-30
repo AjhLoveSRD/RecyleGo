@@ -11,7 +11,7 @@ logout.addEventListener('click', (e) => {
   e.preventDefault();
   localStorage.clear();
   alert('Berhasil logout!');
-  window.location.href = './login.html';
+  window.location.href = '/login';
 });
 // halaman profil
 
