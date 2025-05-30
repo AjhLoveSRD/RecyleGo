@@ -15,7 +15,6 @@ logout.addEventListener('click', (e) => {
 });
 // halaman profil
 
-
 document.addEventListener('DOMContentLoaded', () => {
   const token = localStorage.getItem('token');
   const headers = token ? { Authorization: 'Bearer ' + token } : {};
@@ -51,6 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <td>${item.berat}</td>
             <td>${item.poin_diperoleh}</td>
             <td>${item.keterangan}</td>
+            <td>${item.status}</td>
           </tr>`;
       });
     });

@@ -1,0 +1,28 @@
+<%- include('../layout', { title: 'User', style: 'user', script: 'user', withSidebar: true, withTopbar: true, body: `
+<div class="main">
+  <div class="header-actions">
+    <h2>Daftar Pengguna</h2>
+    <a href="/tambah-user" class="btn btn-primary">+ Tambah Pengguna</a>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Nama</th>
+        <th>Email</th>
+        <th>No. Telepon</th>
+        <th>Alamat</th>
+        <th>Total Poin</th>
+        <th>Status</th>
+        <th>Role</th>
+        <th>Aksi</th>
+      </tr>
+    </thead>
+    <tbody id="penggunaTable">
+      <tr>
+        <td colspan="7">Memuat...</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+` }) %>
